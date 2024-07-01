@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Escaneamento de Lixo</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>App de Escaneamento de Lixo</h1>
+        <div class="camera">
+            <video id="video" autoplay></video>
+            <button id="snap">Tirar Foto</button>
+        </div>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'Reutilizacao')">Reutilização</button>
+            <button class="tablink" onclick="openTab(event, 'Descarte')">Descarte</button>
+        </div>
+        <div id="Reutilizacao" class="tabcontent">
+            <h3>Reutilização</h3>
+            <p id="reutilizacaoInfo">Informações sobre reutilização aparecerão aqui.</p>
+        </div>
+        <div id="Descarte" class="tabcontent">
+            <h3>Descarte</h3>
+            <p id="descarteInfo">Informações sobre descarte aparecerão aqui.</p>
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+</html>
