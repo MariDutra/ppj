@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
     const snap = document.getElementById('snap');
@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const descarteInfo = document.getElementById('descarteInfo');
 
     const lixoInfo = {
-        "papel": {
+        "paper": {
             "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
             "descarte": "O papel deve ser descartado em lixeiras de reciclagem de papel."
         },
-        "plastico": {
+        "plastic": {
             "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
             "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
         },
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "reutilizacao": "O metal pode ser reutilizado para fazer artesanato ou projetos de bricolagem.",
             "descarte": "O metal deve ser descartado em lixeiras de reciclagem de metal."
         },
-        "vidro": {
+        "glass": {
             "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
             "descarte": "O vidro deve ser descartado em lixeiras de reciclagem de vidro."
         }
@@ -29,25 +29,57 @@ document.addEventListener("DOMContentLoaded", function() {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
             video.srcObject = stream;
             video.play();
+        }).catch(function(err) {
+            console.error("Erro ao acessar a câmera: ", err);
         });
     }
 
-    // Tirar foto
-    snap.addEventListener('click', function() {
+    // Carregar o modelo MobileNet
+    let model;
+    try {
+        model = await mobilenet.load();
+        console.log("Modelo MobileNet carregado com sucesso");
+    } catch (error) {
+        console.error("Erro ao carregar o modelo MobileNet: ", error);
+    }
+
+    // Tirar foto e fazer a previsão
+    snap.addEventListener('click', async function() {
+        if (!model) {
+            console.error("Modelo não carregado");
+            return;
+        }
+
         const context = canvas.getContext('2d');
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
-        // Simulando a identificação do tipo de lixo
-        const tipoLixo = "papel"; // Simulação, você pode usar uma API de ML para identificar o tipo de lixo
-
-        if (lixoInfo[tipoLixo]) {
-            reutilizacaoInfo.textContent = lixoInfo[tipoLixo]["reutilizacao"];
-            descarteInfo.textContent = lixoInfo[tipoLixo]["descarte"];
+        const img = tf.browser.fromPixels(canvas);
+        let predictions;
+        try {
+            predictions = await model.classify(img);
+            console.log("Previsões: ", predictions);
+        } catch (error) {
+            console.error("Erro ao fazer a previsão: ", error);
+        }
+        
+        img.dispose();
+        
+        if (predictions && predictions.length > 0) {
+            const tipoLixo = predictions[0].className.split(",")[0].toLowerCase(); // Pega a primeira previsão e transforma em minúsculas
+            console.log("Tipo de lixo identificado: ", tipoLixo);
+            
+            if (lixoInfo[tipoLixo]) {
+                reutilizacaoInfo.textContent = lixoInfo[tipoLixo]["reutilizacao"];
+                descarteInfo.textContent = lixoInfo[tipoLixo]["descarte"];
+            } else {
+                reutilizacaoInfo.textContent = "Tipo de lixo não encontrado.";
+                descarteInfo.textContent = "Tipo de lixo não encontrado.";
+            }
         } else {
-            reutilizacaoInfo.textContent = "Tipo de lixo não encontrado.";
-            descarteInfo.textContent = "Tipo de lixo não encontrado.";
+            reutilizacaoInfo.textContent = "Não foi possível identificar o tipo de lixo.";
+            descarteInfo.textContent = "Não foi possível identificar o tipo de lixo.";
         }
     });
 
@@ -65,4 +97,4 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.style.backgroundColor = '#777';
     }
-});
+}); 

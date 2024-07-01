@@ -11,7 +11,7 @@ body {
 
 .container {
     text-align: center;
-    background: white;
+    background: rgb(23, 97, 67);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
