@@ -97,4 +97,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.style.backgroundColor = '#777';
     }
-}); 
+});

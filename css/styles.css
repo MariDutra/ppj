@@ -11,7 +11,7 @@ body {
 
 .container {
     text-align: center;
-    background: rgb(23, 97, 67);
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -62,10 +62,4 @@ button:hover {
     display: none;
     padding: 20px;
     margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#Reutilizacao {
-    display: block;
 }
