@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>App de Escaneamento de Lixo</h1>
+        <h1 style="color: aliceblue;">App de Escaneamento de Lixo</h1>
         <div class="camera">
-            <video id="video" autoplay></video>
+            <video id="video" autoplay ></video>
             <button id="snap">Tirar Foto</button>
             <input type="file" id="upload" accept="image/*" style="display:none;">
         </div>
@@ -32,5 +32,24 @@
     </div>
     <script src="./script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@4.20.0/dist/tf-core.min.js"></script>
+    <script>
+        async function setupCamera() {
+            const video = document.getElementById('video');
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: { exact: 'environment' }
+                    }
+                });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error('Erro ao acessar a câmera: ', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setupCamera();
+        });
+    </script>
 </body>
 </html>
