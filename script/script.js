@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", async function() {
             "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
             "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
         },
+        "pop bottle": {
+            "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
+            "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
+        },
         "metal": {
             "reutilizacao": "O metal pode ser reutilizado para fazer artesanato ou projetos de bricolagem.",
             "descarte": "O metal deve ser descartado em lixeiras de reciclagem de metal."
@@ -71,15 +75,34 @@ document.addEventListener("DOMContentLoaded", async function() {
             console.log("Tipo de lixo identificado: ", tipoLixo);
             
             if (lixoInfo[tipoLixo]) {
-                reutilizacaoInfo.textContent = lixoInfo[tipoLixo]["reutilizacao"];
-                descarteInfo.textContent = lixoInfo[tipoLixo]["descarte"];
+                const reutilizacaoMensagem = lixoInfo[tipoLixo]["reutilizacao"];
+                const descarteMensagem = lixoInfo[tipoLixo]["descarte"];
+                
+                // Exibir informações em um alert
+                alert(`O ${tipoLixo} deve ser descartado em: ${descarteMensagem}\n\nO ${tipoLixo} pode ser reutilizado para: ${reutilizacaoMensagem}`);
+                
+                // Atualizar o conteúdo das divs
+                reutilizacaoInfo.textContent = reutilizacaoMensagem;
+                descarteInfo.textContent = descarteMensagem;
             } else {
-                reutilizacaoInfo.textContent = "Tipo de lixo não encontrado.";
-                descarteInfo.textContent = "Tipo de lixo não encontrado.";
+                const mensagemErro = "Tipo de lixo não encontrado.";
+                
+                // Exibir erro em um alert
+                alert(mensagemErro);
+                
+                // Atualizar o conteúdo das divs
+                reutilizacaoInfo.textContent = mensagemErro;
+                descarteInfo.textContent = mensagemErro;
             }
         } else {
-            reutilizacaoInfo.textContent = "Não foi possível identificar o tipo de lixo.";
-            descarteInfo.textContent = "Não foi possível identificar o tipo de lixo.";
+            const mensagemErro = "Não foi possível identificar o tipo de lixo.";
+            
+            // Exibir erro em um alert
+            alert(mensagemErro);
+            
+            // Atualizar o conteúdo das divs
+            reutilizacaoInfo.textContent = mensagemErro;
+            descarteInfo.textContent = mensagemErro;
         }
     });
 
