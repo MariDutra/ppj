@@ -3,32 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App de Escaneamento de Lixo</title>
+    <title>App Scanner de Lixo</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 </head>
 <body>
     <div class="container">
-        <h1 style="color: aliceblue;">App de Escaneamento de Lixo</h1>
+        <h1 style="color: rgb(1, 133, 249); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Scanner de Lixo</h1>
         <div class="camera">
             <video id="video" autoplay ></video>
-            <button id="snap">Tirar Foto</button>
+            <button id="snap" style="font-size: large; font-style: italic;">Escanear</button>
             <input type="file" id="upload" accept="image/*" style="display:none;">
         </div>
         <canvas id="canvas" style="display:none;"></canvas>
-        <div class="tabs">
-            <button class="tablink" onclick="openTab(event, 'Reutilizacao')">Reutilização</button>
-            <button class="tablink" onclick="openTab(event, 'Descarte')">Descarte</button>
-        </div>
-        <div id="Reutilizacao" class="tabcontent">
-            <h3>Reutilização</h3>
-            <p id="reutilizacaoInfo">Informações sobre reutilização aparecerão aqui.</p>
-        </div>
-        <div id="Descarte" class="tabcontent">
-            <h3>Descarte</h3>
-            <p id="descarteInfo">Informações sobre descarte aparecerão aqui.</p>
-        </div>
+       
+      
     </div>
     <script src="./script/script.js"></script>
     <script src="./api/index.js"></script>
