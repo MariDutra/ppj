@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         "glass": {
             "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
             "descarte": "O vidro deve ser descartado em lixeiras de reciclagem de vidro."
+        },
+        "beer bottle": {
+            "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
+            "descarte": "O vidro deve ser descartado em lixeiras de reciclagem de vidro."
         }
     };
 
