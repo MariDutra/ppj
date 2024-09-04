@@ -8,31 +8,39 @@ document.addEventListener("DOMContentLoaded", async function() {
     const lixoInfo = {
         "paper": {
             "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
-            "descarte": "O papel deve ser descartado em lixeiras de reciclagem de papel."
+            "descarte": "O papel deve ser descartado em lixeiras de reciclagem da cor AZUL ou no Ponto de Coleta perto das Vans."
+        },
+        "paper towel": {
+            "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
+            "descarte": "O papel deve ser descartado em lixeiras de reciclagem da cor AZUL ou no Ponto de Coleta perto das Vans."
         },
         "carton": {
             "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
-            "descarte": "O papel deve ser descartado em lixeiras de reciclagem de papel."
+            "descarte": "O papel deve ser descartado em lixeiras de reciclagem da cor AZUL ou no Ponto de Coleta perto das Vans ."
         },
         "plastic": {
             "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
-            "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
+            "descarte": "O plástico deve ser descartado em lixeiras da cor VERMELHA ou no Ponto de Coleta localizado no ponto da Vans."
         },
         "pop bottle": {
             "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
-            "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
+            "descarte": "O plástico deve ser descartado em lixeiras da cor VERMELHA ou no Ponto de Coleta localizado no ponto da Vans."
         },
         "metal": {
             "reutilizacao": "O metal pode ser reutilizado para fazer artesanato ou projetos de bricolagem.",
-            "descarte": "O metal deve ser descartado em lixeiras de reciclagem de metal."
+            "descarte": "O metal deve ser descartado em lixeiras da cor AMARELA ou no Ponto de Coleta localizado no ponto da Vans."
         },
         "glass": {
             "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
-            "descarte": "O vidro deve ser descartado em lixeiras de reciclagem de vidro."
+            "descarte": "O vidro deve ser descartado em lixeiras da cor VERDE ou no Ponto de Coleta localizado no ponto da Vans."
         },
         "beer bottle": {
             "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
-            "descarte": "O vidro deve ser descartado em lixeiras de reciclagem de vidro."
+            "descarte": "O vidro deve ser descartado em lixeiras da cor VERDE ou no Ponto de Coleta localizado no ponto da Vans."
+        },
+        "water bottle": {
+            "reutilizacao": "O vidro pode ser reutilizado para fazer jarros ou recipientes de armazenamento.",
+            "descarte": "O vidro deve ser descartado em lixeiras da cor VERDE ou no Ponto de Coleta localizado no ponto da Vans."
         }
     };
 
