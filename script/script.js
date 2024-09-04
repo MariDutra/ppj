@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", async function() {
             "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
             "descarte": "O papel deve ser descartado em lixeiras de reciclagem de papel."
         },
+        "carton": {
+            "reutilizacao": "O papel pode ser reutilizado para fazer rascunhos ou artesanato.",
+            "descarte": "O papel deve ser descartado em lixeiras de reciclagem de papel."
+        },
         "plastic": {
             "reutilizacao": "O plástico pode ser reutilizado para fazer vasos de plantas ou organizadores.",
             "descarte": "O plástico deve ser descartado em lixeiras de reciclagem de plástico."
